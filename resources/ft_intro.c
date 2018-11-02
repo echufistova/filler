@@ -39,27 +39,35 @@ t_point f_size(char *line)
     return (coord);
 }
 
-void algorithm(int **field, int **dop_field, t_game game)
+int search_min(int **field, int i, int j, t_game game)
 {
-    int i;
-    int j;
     int tmp;
 
-    i = 0;
-    while (i < game.field_size.y)
+    if (i != 0 && j != 0)
     {
-        j = 0;
-        while (j < game.field_size.x)
+        tmp = field[i - 1][j];
+        tmp = (tmp > field[i][j - 1]) tmp : 
+    }
+}
+
+void algorithm(int **field, int **dop_field, t_game game)
+{
+    t_point coord;
+    int tmp;
+
+    coord.y = -1;
+    while (++coord.y < game.field_size.y)
+    {
+        coord.x = -1;
+        while (++coord.x < game.field_size.x)
         {
             // tmp = field[i][j];
-            if (field[i][j + 1] >= 0)
-                tmp = field[i][j + 1];
+            //if (field[i][j + 1] >= 0 )
+            field[i][j] = search_min(field, coord.y, coord.x, game);
 
           //  ft_printf("%d  ", dop_field[i][j]);
-            j++;
         }
         //ft_printf("\n");
-        i++;
     }
 }
 
