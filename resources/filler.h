@@ -24,8 +24,8 @@ typedef struct s_point
 typedef	struct s_game
 {
 	char player;
+	char enemy;
 	char **field;
-	// char *where_to_insert;
 	t_point field_size;
 }				t_game;
 

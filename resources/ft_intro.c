@@ -39,18 +39,63 @@ t_point f_size(char *line)
     return (coord);
 }
 
-void create_field(t_game *game)
+void algorithm(int **field, int **dop_field, t_game game)
 {
     int i;
     int j;
+    int tmp;
 
     i = 0;
-    game->field = (char**)malloc(sizeof(char*) * game->field_size.y);
-    // while (i < game->field_size.y)
-    // {
-    //     game->field[i] = (char*)malloc(sizeof(char) * game->field_size.x);
-    //     i++;
-    // }
+    while (i < game.field_size.y)
+    {
+        j = 0;
+        while (j < game.field_size.x)
+        {
+            // tmp = field[i][j];
+            if (field[i][j + 1] >= 0)
+                tmp = field[i][j + 1];
+
+          //  ft_printf("%d  ", dop_field[i][j]);
+            j++;
+        }
+        //ft_printf("\n");
+        i++;
+    }
+}
+
+void filler(t_game game)
+{
+    int field[game.field_size.y][game.field_size.x];
+    int dop_field[game.field_size.y][game.field_size.x];
+    t_point coord;
+
+    coord.y = -1;
+    ft_printf("here\n");
+    while (++coord.y < game.field_size.y)
+    {
+        coord.x = -1;
+        while (++coord.x < game.field_size.x)
+        {
+            if (game.field[coord.y][coord.x] == game.player)
+            {
+                field[coord.y][coord.x] = -2;
+                dop_field[coord.y][coord.x] = -2;
+            }
+            else if (game.field[coord.y][coord.x] == game.enemy)
+            {
+                field[coord.y][coord.x] = 0;
+                dop_field[coord.y][coord.x] = 0;
+            }
+            else 
+            {
+                field[coord.y][coord.x] = -1;
+                dop_field[coord.y][coord.x] = -1;
+            }
+           ft_printf("%d  ", dop_field[coord.y][coord.x]);
+        }
+        ft_printf("\n");
+    }
+    //algorithm(field, dop_field, game);
 }
 
 int main(int ac, char **av)
@@ -59,9 +104,6 @@ int main(int ac, char **av)
     int j;
     int fd;
     char *line;
-    char *help;
-    t_point field_size;
-    t_point figure_size;
     t_game game;
 
 
@@ -73,20 +115,24 @@ int main(int ac, char **av)
     while (get_next_line(fd, &line) > 0 && i < 2)
     {
         game.player = (i == 0) ? get_player(line[10]) : game.player;
+        game.enemy = (game.player == 'O') ? 'X' : 'O';
         game.field_size = (i == 1) ? f_size(line) : game.field_size;
         i++;
     }
     ft_printf("player: %c\n", game.player);
-    create_field(&game);//game.field = (char**)malloc(sizeof(char*) * game.field_size.y);
-    ft_printf("player: %c\n", game.player);
+    ft_printf(" enemy: %c\n", game.enemy);
+    game->field = (char**)malloc(sizeof(char*) * game->field_size.y);
     while (get_next_line(fd, &line) > 0)
     {
         if (line[0] == '0')
         {
             //ft_printf("here\n");
-            game.field[line[2] - 48] = ft_strsub(line, 4, game.field_size.x);
-            ft_printf("%s\n", game.field[line[2] - 48]);
+            game.field[ft_atoi(line)] = ft_strsub(line, 4, game.field_size.x);
+            ft_printf("%s\n", game.field[ft_atoi(line)]);
         }
+        // ft_printf("ft_atoi(line) %d\n", ft_atoi(line));
+        if (ft_atoi(line) == game.field_size.y - 1)
+            filler(game);
         //get_field(line, &game);
         //dprintf(fd, "%s\n", line);
         //ft_printf("8 2\n");
@@ -99,6 +145,7 @@ int main(int ac, char **av)
         // ft_strdel(&line);
         //i++;
     }
+    //ft_printf("%d\n", ft_atoi("017.............."));
     // i = 0;
     // while (i < game.field_size.y)
     // {
