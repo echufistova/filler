@@ -29,4 +29,9 @@ typedef	struct s_game
 	t_point field_size;
 }				t_game;
 
+int check_int_arr_equal(int **tab, int **tab2, int hign, int length);
+int **create_same_arr(int **tab, int hign, int length);
+int **create_arr(int high, int length);
+void del_arr(int **tab, int high, int length);
+
 #endif //FILLER_FILLER_H

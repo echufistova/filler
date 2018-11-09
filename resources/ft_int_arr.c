@@ -10,10 +10,93 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "libft.h"
+#include "filler.h"
 
-// int **ft_int_arr(int **tab)
-// {
-// 	int **res;
-	
-// }
+int check_int_arr_equal(int **tab, int **tab2, int high, int length)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < high)
+	{
+		j = 0;
+		while (j < length)
+		{
+			if (tab[i][j] != tab2[i][j])
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int **create_same_arr(int **tab, int high, int length)
+{
+	int **res;
+	int i;
+	int j;
+
+	res = (int**)malloc(sizeof(int*) * high);
+	i = 0;
+	while (i < high)
+	{
+		j = 0;
+		res[i] = (int*)malloc(sizeof(int) * length);
+		while (j < length)
+		{
+			res[i][j] = tab[i][j];
+			j++;
+		}
+		i++;
+	}
+	return (res);
+}
+
+int **create_arr(int high, int length)
+{
+	int **res;
+	int i;
+	int j;
+
+	res = (int**)malloc(sizeof(int*) * high);
+	i = 0;
+	while (i < high)
+	{
+		j = 0;
+		res[i] = (int*)malloc(sizeof(int) * length);
+		while (j < length)
+		{
+			// res[i][j] = (int*)malloc(sizeof(int));
+			res[i][j] = 0;
+			j++;
+			printf("%d  ", res[i][j]);
+		}
+		i++;
+		printf("\n");
+	}
+	return (res);
+}
+
+void del_arr(int **tab, int high, int length)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < high)
+	{
+		free(tab[i]);
+		j = 0;
+		// while (j < length)
+		// {
+		// 	//res[i][j] = (int*)malloc(sizeof(int));
+		// 	free(tab[i][j]);
+		// 	j++;
+		// 	printf("%d  ", tab[i][j]);
+		// }
+		i++;
+		// printf("\n");
+	}
+}
