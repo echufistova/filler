@@ -18,6 +18,7 @@
 # include <string.h>
 # include <stdlib.h>
 # include <ctype.h>
+# include <inttypes.h>
 
 int					g_atoi_i;
 int					g_atoi_flag;

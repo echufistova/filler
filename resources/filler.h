@@ -25,8 +25,11 @@ typedef	struct s_game
 {
 	char player;
 	char enemy;
-	char **field;
+	int **field;
+	int **piece;
+	t_point piece_size;
 	t_point field_size;
+
 }				t_game;
 
 int check_int_arr_equal(int **tab, int **tab2, int hign, int length);

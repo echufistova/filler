@@ -22,6 +22,7 @@
 # include <stdint.h>
 # include <locale.h>
 # include <wchar.h>
+# include <inttypes.h>
 
 typedef struct		s_hljz
 {

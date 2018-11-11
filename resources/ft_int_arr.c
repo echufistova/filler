@@ -68,13 +68,13 @@ int **create_arr(int high, int length)
 		res[i] = (int*)malloc(sizeof(int) * length);
 		while (j < length)
 		{
-			// res[i][j] = (int*)malloc(sizeof(int));
 			res[i][j] = 0;
-			j++;
+
 			printf("%d  ", res[i][j]);
+			j++;
 		}
 		i++;
-		printf("\n");
+		printf("create arr\n");
 	}
 	return (res);
 }
@@ -82,21 +82,11 @@ int **create_arr(int high, int length)
 void del_arr(int **tab, int high, int length)
 {
 	int i;
-	int j;
 
 	i = 0;
 	while (i < high)
 	{
 		free(tab[i]);
-		j = 0;
-		// while (j < length)
-		// {
-		// 	//res[i][j] = (int*)malloc(sizeof(int));
-		// 	free(tab[i][j]);
-		// 	j++;
-		// 	printf("%d  ", tab[i][j]);
-		// }
 		i++;
-		// printf("\n");
 	}
 }
