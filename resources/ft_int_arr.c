@@ -70,11 +70,11 @@ int **create_arr(int high, int length)
 		{
 			res[i][j] = 0;
 
-			printf("%d  ", res[i][j]);
+			// printf("%d  ", res[i][j]);
 			j++;
 		}
 		i++;
-		printf("create arr\n");
+		// printf("create arr\n");
 	}
 	return (res);
 }

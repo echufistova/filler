@@ -23,13 +23,14 @@ typedef struct s_point
 
 typedef	struct s_game
 {
+	int stars_counter;
 	char player;
 	char enemy;
 	int **field;
-	int **piece;
+	char **piece;
 	t_point piece_size;
 	t_point field_size;
-
+	t_point *stars_coord;
 }				t_game;
 
 int check_int_arr_equal(int **tab, int **tab2, int hign, int length);

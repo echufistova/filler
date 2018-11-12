@@ -1,2 +1,6 @@
-seed = 5296
-O: error on input
+seed = 3750
+O: timedout
+X: error on input
+./players/grati.filler won
+Score:
+0AGAINST47
