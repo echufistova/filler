@@ -28,6 +28,7 @@ typedef	struct s_game
 	char enemy;
 	int **field;
 	char **piece;
+	t_point begin_coord;
 	t_point piece_size;
 	t_point field_size;
 	t_point *stars_coord;

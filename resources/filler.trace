@@ -1,6 +1,5 @@
-seed = 3750
-O: timedout
-X: error on input
-./players/grati.filler won
-Score:
-0AGAINST47
+seed = 859
+O: error on input
+./players/a.out: Segfault at 0
+re:
+1AGAINST1

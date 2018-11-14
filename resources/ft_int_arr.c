@@ -48,7 +48,9 @@ int **create_same_arr(int **tab, int high, int length)
 		{
 			res[i][j] = tab[i][j];
 			j++;
+//			ft_printf("%d ", res[i][j]);
 		}
+//		ft_printf("\n");
 		i++;
 	}
 	return (res);
