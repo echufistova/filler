@@ -10,40 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#ifndef GET_NEXT_LINE_H
-//# define GET_NEXT_LINE_H
-//# define BUFF_SIZE 30
-//
-//# include <sys/types.h>
-//# include <sys/stat.h>
-//# include <fcntl.h>
-//
-//# include <string.h>
-//# include <stdlib.h>
-//# include <unistd.h>
-//# include <stdio.h>
-//# include <inttypes.h>
-//
-//int get_next_line(int fd, char **line);
-//
-//#endif
-
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFF_SIZE 4
-# include <sys/uio.h>
-# include <unistd.h>
+# define BUFF_SIZE 1
+
+# include <sys/types.h>
+# include <sys/stat.h>
 # include <fcntl.h>
+
+# include <string.h>
 # include <stdlib.h>
-# include "libft.h"
+# include <unistd.h>
+# include <stdio.h>
+# include <inttypes.h>
 
-typedef struct		s_str
-{
-    int				fd;
-    char			*content;
-    struct s_str	*next;
-}					t_str;
-
-int					get_next_line(const int fd, char **line);
+int get_next_line(int fd, char **line);
 
 #endif

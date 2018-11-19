@@ -71,17 +71,14 @@ int **create_arr(int high, int length)
 		while (j < length)
 		{
 			res[i][j] = 0;
-
-			// printf("%d  ", res[i][j]);
 			j++;
 		}
 		i++;
-		// printf("create arr\n");
 	}
 	return (res);
 }
 
-void del_arr(int **tab, int high, int length)
+void del_arr(int **tab, int high)
 {
 	int i;
 
