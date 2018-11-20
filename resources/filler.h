@@ -37,6 +37,6 @@ typedef	struct s_game
 int check_int_arr_equal(int **tab, int **tab2, int hign, int length);
 int **create_same_arr(int **tab, int hign, int length);
 int **create_arr(int high, int length);
-void del_arr(int **tab, int high, int length);
+void del_arr(int **tab, int high);
 
 #endif //FILLER_FILLER_H

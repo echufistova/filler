@@ -1,5 +1,4 @@
-seed = 859
-O: error on input
-./players/a.out: Segfault at 0
-re:
-1AGAINST1
+seed = 2780
+./players/a.out won
+Score:
+292AGAINST44

@@ -81,7 +81,7 @@ int **create_arr(int high, int length)
 	return (res);
 }
 
-void del_arr(int **tab, int high, int length)
+void del_arr(int **tab, int high)
 {
 	int i;
 
