@@ -12,34 +12,34 @@
 
 NAME = ychufist.filler
 
-LIBFT = ./resources/libft/libftprintf.a
+LIBFT = libft/libftprintf.a
 
 FLAGS = -Wall -Wextra -Werror
 
-SRC = ./resources/ft_intro.c ./resources/ft_int_arr.c
+SRC = ./ft_intro.c ./ft_infa.c ./ft_insertable.c
 
 OUT = $(SRC:.c=.o)
 
-HDR = ./resources/filler.h
+HDR = ./filler.h
 
 all: lib $(NAME)
 
 lib:
-	make -C resources/libft
+	make -C libft
 
 $(NAME): $(OUT) $(LIBFT)
 	gcc -o $(NAME) $(OUT) $(LIBFT)
 
 %.o: %.c $(HDR)
-	gcc $(FLAGS) -o $@ -c $< -I ./resources/libft
+	gcc $(FLAGS) -o $@ -c $< -I libft
 
 clean:
-	make clean -C ./resources/libft
+	make clean -C libft
 	/bin/rm -f $(OUT)
 	/bin/rm -f *~
 
 fclean: clean
-	make fclean -C ./resources/libft
+	make fclean -C libft
 	/bin/rm -f $(NAME)
 
 re: fclean all
